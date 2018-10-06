@@ -20,6 +20,13 @@ function checkScroll(e) {
         const slideInAt = (window.scrollY + window.innerHeight) - slidePhoto.height / 2;
         const slideBottom = slidePhoto.offsetTop + slidePhoto.height;
         const isHalfShown = slideInAt > slidePhoto.offsetTop;
+        const isNotScrolledOver = window.scrollY < slideBottom;
+        
+        if (isHalfShown && isNotScrolledOver) {
+            slidePhoto.classList.add('active');
+        } else {
+            slidePhoto.classList.remove('active');
+        }
     });
 }
 
